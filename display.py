@@ -9,10 +9,10 @@ class Segment:
         self.segmentTurtle.speed(0)
         self.lit = False
 
-    def setShape(self, shape):
+    def setShape(self, shape: str):
         self.segmentTurtle.shape(shape)
 
-    def setSegmentCords(self, x, y):
+    def setSegmentCords(self, x: int, y: int):
         self.segmentTurtle.setposition(x, y)
 
     def flip(self):
@@ -36,7 +36,7 @@ class SevenSegmentDisplay:
         for i, _cords in enumerate(segmentCordsIn):
             self.segments[i].setSegmentCords(_cords[0], _cords[1])
 
-    def setDisplayCords(self, x, y):
+    def setDisplayCords(self, x: int, y: int):
         segmentCordsIn = [[0, 60], [50, 50], [50, -10], [0, -60], [-10, -10], [-10, 50], [0, 0]]
         for i in range(segmentCordsIn.__len__()):
             segmentCordsIn[i][0] += x
@@ -44,6 +44,9 @@ class SevenSegmentDisplay:
 
         for i, _cords in enumerate(segmentCordsIn):
             self.segments[i].setSegmentCords(_cords[0], _cords[1])
+
+    def flipSegment(self, segmentIndex):
+        self.segments[segmentIndex].flip()
 
 
 # ----
